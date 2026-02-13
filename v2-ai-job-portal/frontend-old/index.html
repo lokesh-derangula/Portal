@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobNexus Pro | AI Powered Career Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Top Navigation -->
+        <header class="top-nav">
+            <div class="nav-left">
+                <div class="logo">
+                    <div class="logo-box">J</div>
+                    <span class="logo-text">JobNexus <span>Pro</span></span>
+                </div>
+            </div>
+            <div class="nav-center">
+                <div class="search-bar">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Search by title, company, or skills..."
+                        value="Software Engineer">
+                    <button id="search-button">Search</button>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="status-indicator" id="ai-status">
+                    <div class="pulse-dot"></div>
+                    <span>AI Status</span>
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">RN</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav>
+                    <a href="#" class="nav-item active">
+                        <i data-lucide="layout-dashboard"></i>
+                        <span>Job Feed</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="clipboard-list"></i>
+                        <span>Applications</span>
+                        <span class="badge">12</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="heart"></i>
+                        <span>Saved Jobs</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="brain-circuit"></i>
+                        <span>AI Matcher</span>
+                    </a>
+                </nav>
+                <div class="sidebar-footer">
+                    <div class="ai-card">
+                        <div class="ai-card-header">
+                            <i data-lucide="sparkles"></i>
+                            <span>AI PROFILE</span>
+                        </div>
+                        <div class="match-score">92%</div>
+                        <p>Strong match for engineering roles.</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content-area">
+                <div class="filter-bar">
+                    <button class="filter-pill active">All Jobs</button>
+                    <button class="filter-pill">Remote</button>
+                    <button class="filter-pill">Full-time</button>
+                    <button class="filter-pill">Salary: High to Low</button>
+                </div>
+
+                <div class="split-view">
+                    <!-- Left Column: Job List -->
+                    <section class="job-list" id="jobs-container">
+                        <div class="list-header">
+                            <h3 id="results-count">Search for current openings</h3>
+                        </div>
+                        <div class="loader-container" id="main-loader" style="display: none;">
+                            <div class="spinner"></div>
+                            <p>Analyzing with AI...</p>
+                        </div>
+                        <!-- Job cards injected here -->
+                    </section>
+
+                    <!-- Right Column: Job Detail -->
+                    <section class="job-detail" id="job-detail-view">
+                        <div class="empty-detail">
+                            <i data-lucide="briefcase" class="empty-icon"></i>
+                            <h3>Select a job to view details</h3>
+                            <p>Click on any job card to see AI insights, requirements, and more.</p>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Templates -->
+    <template id="job-card-template">
+        <div class="job-card">
+            <div class="job-card-top">
+                <div class="company-logo"></div>
+                <div class="job-info">
+                    <h4 class="job-item-title"></h4>
+                    <p class="job-item-company"></p>
+                </div>
+            </div>
+            <div class="job-tags">
+                <span class="tag location"><i data-lucide="map-pin"></i> <span class="loc-text"></span></span>
+                <span class="tag time">Recently Added</span>
+            </div>
+            <div class="match-bar">
+                <div class="match-fill"></div>
+                <span class="match-text">88% AI Match</span>
+            </div>
+        </div>
+    </template>
+
+    <template id="job-detail-template">
+        <div class="detail-content">
+            <header class="detail-header">
+                <div class="detail-title-row">
+                    <h2></h2>
+                    <div class="detail-actions">
+                        <button class="btn-save"><i data-lucide="heart"></i></button>
+                        <button class="btn-apply">Apply Now <i data-lucide="external-link"></i></button>
+                    </div>
+                </div>
+                <div class="detail-company-row">
+                    <span class="det-company"></span>
+                    <span class="separator">·</span>
+                    <span class="det-location"></span>
+                </div>
+            </header>
+
+            <div class="ai-insight-panel">
+                <div class="ai-pannel-header">
+                    <i data-lucide="brain-circuit"></i>
+                    <span>AI APPLICANT INSIGHTS</span>
+                </div>
+                <p class="ai-summary-text"></p>
+                <div class="skill-tags">
+                    <span class="skill-tag match">React</span>
+                    <span class="skill-tag match">Node.js</span>
+                    <span class="skill-tag">Cloud Architecture</span>
+                </div>
+            </div>
+
+            <div class="job-description-section">
+                <h4>About this role</h4>
+                <div class="description-text"></div>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>
