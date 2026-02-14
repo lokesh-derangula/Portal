@@ -28,7 +28,7 @@ app.post('/auth/student-entry', (req, res) => {
     res.json({ success: true, message: 'Profile updated successfully' });
 });
 
-const AI_PORT = 8080;
+const AI_PORT = process.env.PORT;
 app.listen(AI_PORT, '0.0.0.0', () => {
     console.log(`AI Backend Server running on port ${AI_PORT}`);
 });
