@@ -27,8 +27,11 @@ app.post('/auth/student-entry', (req, res) => {
     console.log('Received student data:', studentData);
     res.json({ success: true, message: 'Profile updated successfully' });
 });
+// Change this line
+const PORT = process.env.PORT || 5001; 
 
-const AI_PORT = 5001;
-app.listen(AI_PORT, '0.0.0.0', () => {
-    console.log(`AI Backend Server running on port ${AI_PORT}`);
+// Change the listen function
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${PORT}`);
 });
+
