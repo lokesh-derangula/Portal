@@ -89,7 +89,8 @@ app.post('/api/auth/register', (req, res) => {
  * 5. Server Startup
  * Railway automatically provides the PORT variable
  */
-const PORT = 8080; 
+const PORT = process.env.PORT || 3000;
+ 
 
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Backend Server running on port ${PORT}`);
