@@ -1,5 +1,5 @@
 // CHANGE THIS to your actual Railway URL
-const API_BASE_URL = 'https://job-portal-2026.up.railway.app'; 
+const API_BASE_URL = 'https://portal-production-504c.up.railway.app/'; 
 
 // ... rest of your frontend code remains the same
 
