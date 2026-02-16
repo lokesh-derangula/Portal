@@ -50,5 +50,10 @@ EXPOSE 3000
 EXPOSE 5001
 
 # Start both AI backend (5001) and Next.js frontend (3000)
-# Railway will automatically use the $PORT variable if specified, but we default to 3000
-CMD node v2-ai-job-portal/backend/server.js & npm start
+# Copy startup script and set permissions
+COPY scripts/start.sh ./scripts/start.sh
+RUN sed -i 's/\r$//' ./scripts/start.sh
+RUN chmod +x ./scripts/start.sh
+
+# Start both services using the script
+CMD ["./scripts/start.sh"]
