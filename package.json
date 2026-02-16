@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node v2-ai-job-portal/backend/server.js",
     "ai-backend": "node v2-ai-job-portal/backend/server.js",
     "ai-portal": "npm run ai-backend & npm run dev",
     "serve": "node v2-ai-job-portal/backend/server.js & next start",

@@ -1,4 +1,7 @@
-const API_BASE_URL = 'http://localhost:5000';
+// CHANGE THIS to your actual Railway URL
+const API_BASE_URL = 'https://job-portal-2026.up.railway.app/'; 
+
+// ... rest of your frontend code remains the same
 
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
